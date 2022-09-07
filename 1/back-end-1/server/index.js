@@ -12,21 +12,6 @@ const app = express()
 app.use(express.json()) //allows server to accept JSON object
 app.use(cors()) // allows server to activate CORS
 
-app.get('/api/inventory', (req, res) => {
-    console.log(req.body)
-    console.log(req.query)
-    console.log(req.params)
-
-    res.status(200).send(dummyDatabase)
-})
-
-app.get('/api/inventory/:id', (req, res) => {
-
-
-    let index = req.params.id
-    console.log(dummyDatabase[+req.params.id])
-})
-
 app.get("/api/users", (req, res) => {
     let friends = ["Nitin", "Eric", "Jeddy", "Cameron", "Riley"];
     res.status(200).send(friends);
@@ -36,7 +21,6 @@ app.get("/api/users", (req, res) => {
     const { temperature } = req.params;
     const phrase = `<h3>It was ${temperature} today</h3>`;
     res.status(200).send(phrase);
-
   });
 //Open door for server to receive request
 
